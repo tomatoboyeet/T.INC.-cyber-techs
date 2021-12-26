@@ -20,4 +20,4 @@ def main():
     with open('IPdata.txt','r')as z3:y=z3.read()
     if not x==y and not x in y:
         with open('IPdata.txt','a')as z1:z1.write(r(x,False))
-        with open('IPlogs,txt','a')as z2:z2.write(r(x,True))
+        with open('IPlogs.txt','a')as z2:z2.write(r(x,True))
