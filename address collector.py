@@ -1,3 +1,4 @@
+#before running this script, make 2 files: IPlogs.txt and IPdata.txt, both are essential for this to work.
 import subprocess,datetime,io,time
 def r(x,t):
     x,result=io.StringIO(x),''
