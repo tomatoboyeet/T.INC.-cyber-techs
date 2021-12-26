@@ -1,0 +1,5 @@
+all files are named with a specific method.
+<version>.<version>s - s means stable, stable release.
+<version>.<version>u - u means unstable, not stable, dont run it.
+num.<version> - the number stating the version. only major changes will have this number change.
+<version>.num - subversion, states the minor changes.
