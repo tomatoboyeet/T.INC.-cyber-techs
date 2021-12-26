@@ -1,5 +1,4 @@
 import subprocess,datetime,io,time
-def collect():return str(subprocess.check_output('arp -a', stderr=subprocess.STDOUT))
 def clean(x):
     while '  'in x:x=x.replace('  ',' ')
     x,g=x.lower().replace('static','static\n').replace("b'",'').replace("'",'').replace(r'\r\n',''),False
@@ -21,22 +20,8 @@ def r(x,t):
             for i in x.readlines():result+=i if not i in z.read()else print('')
             return result
 def main():
-    z1,x,z2=open('IPdata.txt','r'),clean(collect()),open('IPlogs.txt','a')
-    y=z1.read()
-    z1.close()
-    if x==y:pass
-    elif x in y:pass
-    else:
-        z1=open('IPdata.txt','a')
-        if not x==y:
-            z2.write(r(x,True))
-            z1.write(r(x,False))
-            print(str(r(x,True)))
-            print(str(r(x,False)))
-        z1.close()
-        z2.close()
-    print('logged again')
-def all():
-    while True:
-        main()
-        time.sleep(10)
+    x=clean(str(subprocess.check_output('arp -a', stderr=subprocess.STDOUT)))
+    with open('IPdata.txt','a')as z3:y=z3.read()
+    if not x==y and not x in y:
+        with open('IPdata.txt','a')as z1:z1.write(r(x,False))
+        with open('IPlogs,txt','a')as z2:z2.write(r(x,True))
